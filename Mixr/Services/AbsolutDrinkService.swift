@@ -18,13 +18,13 @@ let absolutSecret = "f1770809e4be4dd8873400134f422f10"
 
 class AbsolutDrinkService: NSObject {
 
-    func searchForDrinksWithKeyword(keyword: String) -> Array<DrinkModel>? {
+    func searchForDrinksWithKeyword(_ keyword: String) -> Array<DrinkModel>? {
         
         return nil
     }
     
     
-    func getInformationForDrinkName(drinkName: String) -> DetailedDrinkModel? {
+    func getInformationForDrinkName(_ drinkName: String) -> DetailedDrinkModel? {
         //Talk to the server for the app
         return nil
     }
