@@ -18,7 +18,7 @@ class BartenderManager: NSObject {
 }
 
 extension BartenderManager {
-    func detailedDrinkInformationForDrink(drink: DrinkModel) -> DetailedDrinkModel? {
+    func detailedDrinkInformationForDrink(_ drink: DrinkModel) -> DetailedDrinkModel? {
         return nil
     }
 }
