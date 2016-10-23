@@ -9,16 +9,15 @@
 
 import UIKit
 
-class BartenderManager: NSObject {
-    var savedDrink: DrinkModel?
-    
-    override init() {
-        self.savedDrink = nil
-    }
+protocol CatalogueService {
+    func searchByName(name: String,
+                      completion: @escaping (_ result: [DrinkModel]) -> Void)
 }
 
-extension BartenderManager {
-    func detailedDrinkInformationForDrink(_ drink: DrinkModel) -> DetailedDrinkModel? {
-        return nil
+class BartenderManager: NSObject {
+    var lastSearch : [DrinkModel]
+    
+    init(catalogue: CatalogueService) {
+        self.lastSearch = []
     }
 }
