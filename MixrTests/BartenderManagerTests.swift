@@ -1,6 +1,6 @@
 //
-//  MixrTests.swift
-//  MixrTests
+//  BartenderManagerTests.swift
+//  Mixr
 //
 //  Created by Caelin Jackson-King on 2016-10-23.
 //  Copyright © 2016 Caelin Inc. All rights reserved.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import Mixr
 
-class MixrTests: XCTestCase {
+class BartenderManagerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

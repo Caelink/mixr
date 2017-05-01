@@ -7,12 +7,19 @@
 //
 
 import XCTest
+@testable import Mixr
 
 class AbsolutDrinkServiceTests: XCTestCase {
+    let subject : AbsolutDrinkService = AbsolutDrinkService()
+    let results : [DrinkModel] = [DrinkModel(
+        name:"vodka martini",
+        ingredients:[],
+        partsPerIngredient:[Ingredient:Int](),
+        extraInformation:"")]
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
     }
     
     override func tearDown() {
@@ -20,16 +27,36 @@ class AbsolutDrinkServiceTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testValidDrink() {
+        let asyncExpectation = expectation(description: "networkTest")
+        var callData: [DrinkModel]
+        callData = []
+        
+        subject.searchByName(name: "") { (data) in
+            asyncExpectation.fulfill()
+            callData.append(contentsOf: data)
+        }
+        
+        self.waitForExpectations(timeout: 100.0) { (error) in
+            XCTAssertNil(error, "Call didn't finish in time")
+            XCTAssert(!callData.isEmpty, "no data was returned")
         }
     }
     
+    
+    func testInvalidDrink() {
+        let asyncExpectation = expectation(description: "networkTest")
+        var callData: [DrinkModel]
+        callData = []
+
+        subject.searchByName(name: "lol what am I doing?/") { (data) in
+            asyncExpectation.fulfill()
+            callData.append(contentsOf: data)
+        }
+        
+        self.waitForExpectations(timeout: 100.0) { (error) in
+            XCTAssertNil(error, "Call didn't finish in time")
+            XCTAssert(callData.isEmpty, "There were drinks returned")
+        }
+    }
 }
