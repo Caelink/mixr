@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import SwiftyJSON
+import RxSwift
 
 //TODO make a constants file and don't put this stuff in my public repo...
 let absolutName = "Caelin"
@@ -15,7 +15,6 @@ let absolutBaseURL = "https://addb.absolutdrinks.com/drinks/"
 let absolutAppID = "10049"
 let absolutKey = "7c52101395ba4fe091bc40f1a6927951"
 let absolutSecret = "f1770809e4be4dd8873400134f422f10"
-
 
 extension DrinkModel {
     func modelFrom(absolutDictionary: [String : AnyObject]) -> DrinkModel {
@@ -26,18 +25,19 @@ extension DrinkModel {
     }
 }
 
-
-//I think this might need to be a class with singleton semantics :/
-// Also I don't want to put this on master until I test it
 class AbsolutDrinkService: NSObject, CatalogueService {
+    fileprivate var parsedDrinks: BehaviorSubject<[DrinkModel]> = BehaviorSubject(value: [])
+    var knownDrinks: Observable<[DrinkModel]> {
+        get {
+            return parsedDrinks.asObservable()
+        }
+    }
 
-    func searchForDrinksWithKeyword(_ keyword: String) -> Array<DrinkModel>? {
-        
-        return nil
+    func searchForDrinksWithKeyword(_ keyword: String) {
+        /* No-op for now - updates knownDrinks Observable */
     }
     
-    func searchByName(name: String,
-                      completion: @escaping (_ result: [DrinkModel]) -> Void) {
+    func search(by name: String) {
         //Talk to the server for the app
         let absolutKeyParameter = "?apiKey=" + absolutKey
         guard let drinkName = percentEscape(aString: name) else {
@@ -57,23 +57,20 @@ class AbsolutDrinkService: NSObject, CatalogueService {
         print("making request now")
         
         let task = session.dataTask(with: request,
-                                    completionHandler: {(data, response, error) in
+                                    completionHandler: { [weak self] (data, response, error) in
                                         guard error == nil else {
                                             print("Error making request")
-                                            completion([])
                                             return
                                         }
                                         
                                         if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                                             print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                                            print("response = \(response)")
-                                            completion([])
+                                            print("response = \(String(describing: response))")
                                             return
                                         }
                                         
                                         guard let responseData = data else {
                                             print("No data returned")
-                                            completion([])
                                             return
                                         }
                                         
@@ -83,10 +80,9 @@ class AbsolutDrinkService: NSObject, CatalogueService {
                                                 return
                                             }
                                             let drinks = unpack(drinkData: drinkData)
-                                            completion(drinks)
+                                            self?.parsedDrinks.onNext(drinks)
                                         } catch {
                                             print("Error converting to json")
-                                            completion([])
                                         }
         })
         task.resume()

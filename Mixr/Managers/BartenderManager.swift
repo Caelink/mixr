@@ -8,16 +8,14 @@
 
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 protocol CatalogueService {
-    func searchByName(name: String,
-                      completion: @escaping (_ result: [DrinkModel]) -> Void)
+    var knownDrinks: Observable<[DrinkModel]> { get }
 }
 
 class BartenderManager: NSObject {
-    var lastSearch : [DrinkModel]
+    var source: CatalogueService?
     
-    init(catalogue: CatalogueService) {
-        self.lastSearch = []
-    }
 }

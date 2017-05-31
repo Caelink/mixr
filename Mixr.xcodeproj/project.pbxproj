@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01194924901DC40A9BDC8C6C /* Pods_Mixr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D0F127DE47CE2420B003860 /* Pods_Mixr.framework */; };
 		0D67704A1DBC867D00547EDE /* AbsolutDrinkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6770491DBC867D00547EDE /* AbsolutDrinkServiceTests.swift */; };
 		0D67704C1DBD936600547EDE /* BartenderManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D67704B1DBD936600547EDE /* BartenderManagerTests.swift */; };
 		AE58BDE01D6FBFE60059E733 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE58BDDF1D6FBFE60059E733 /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 		AE58BE041D72142A0059E733 /* BartenderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE58BE031D72142A0059E733 /* BartenderManager.swift */; };
 		AE58BE071D7214BD0059E733 /* DrinkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE58BE061D7214BD0059E733 /* DrinkModel.swift */; };
 		AE58BE091D77978D0059E733 /* AbsolutDrinkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE58BE081D77978D0059E733 /* AbsolutDrinkService.swift */; };
+		DB393C94A23B816DF6A7F6E5 /* Pods_MixrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A4237698738DFA8A14B045 /* Pods_MixrTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,11 @@
 /* Begin PBXFileReference section */
 		0D6770491DBC867D00547EDE /* AbsolutDrinkServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsolutDrinkServiceTests.swift; sourceTree = "<group>"; };
 		0D67704B1DBD936600547EDE /* BartenderManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BartenderManagerTests.swift; sourceTree = "<group>"; };
+		1BBA60A9D36614827A0E4C46 /* Pods-MixrTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixrTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MixrTests/Pods-MixrTests.release.xcconfig"; sourceTree = "<group>"; };
+		86A099CFCBECAA6A66EE53D9 /* Pods-Mixr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mixr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mixr/Pods-Mixr.debug.xcconfig"; sourceTree = "<group>"; };
+		8D0F127DE47CE2420B003860 /* Pods_Mixr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mixr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99496BE0D2DEFE555DEEFD2C /* Pods-MixrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixrTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MixrTests/Pods-MixrTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A5A4237698738DFA8A14B045 /* Pods_MixrTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MixrTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE58BDDC1D6FBFE60059E733 /* Mixr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mixr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE58BDDF1D6FBFE60059E733 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE58BDE11D6FBFE60059E733 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +55,7 @@
 		AE58BE031D72142A0059E733 /* BartenderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BartenderManager.swift; sourceTree = "<group>"; };
 		AE58BE061D7214BD0059E733 /* DrinkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkModel.swift; sourceTree = "<group>"; };
 		AE58BE081D77978D0059E733 /* AbsolutDrinkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsolutDrinkService.swift; sourceTree = "<group>"; };
+		B8FC0E86F91A26C8B14E4EF1 /* Pods-Mixr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mixr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mixr/Pods-Mixr.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01194924901DC40A9BDC8C6C /* Pods_Mixr.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB393C94A23B816DF6A7F6E5 /* Pods_MixrTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +93,8 @@
 				AE58BDDE1D6FBFE60059E733 /* Mixr */,
 				AE58BDF51D6FBFE60059E733 /* MixrTests */,
 				AE58BDDD1D6FBFE60059E733 /* Products */,
+				D4C8814721021EDD38B938DD /* Pods */,
+				EDDCC5F14BDE6660E8BEC8A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,6 +158,26 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		D4C8814721021EDD38B938DD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				86A099CFCBECAA6A66EE53D9 /* Pods-Mixr.debug.xcconfig */,
+				B8FC0E86F91A26C8B14E4EF1 /* Pods-Mixr.release.xcconfig */,
+				99496BE0D2DEFE555DEEFD2C /* Pods-MixrTests.debug.xcconfig */,
+				1BBA60A9D36614827A0E4C46 /* Pods-MixrTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EDDCC5F14BDE6660E8BEC8A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8D0F127DE47CE2420B003860 /* Pods_Mixr.framework */,
+				A5A4237698738DFA8A14B045 /* Pods_MixrTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,9 +185,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE58BDFB1D6FBFE60059E733 /* Build configuration list for PBXNativeTarget "Mixr" */;
 			buildPhases = (
+				39EA1E9B02639FEEA77D23DB /* [CP] Check Pods Manifest.lock */,
 				AE58BDD81D6FBFE60059E733 /* Sources */,
 				AE58BDD91D6FBFE60059E733 /* Frameworks */,
 				AE58BDDA1D6FBFE60059E733 /* Resources */,
+				F62DC58A0496667B28897DC7 /* [CP] Embed Pods Frameworks */,
+				39455DFD74F4C24936B6AC9B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +205,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE58BDFE1D6FBFE60059E733 /* Build configuration list for PBXNativeTarget "MixrTests" */;
 			buildPhases = (
+				CE45E86C13D16CBF0B917C5B /* [CP] Check Pods Manifest.lock */,
 				AE58BDEE1D6FBFE60059E733 /* Sources */,
 				AE58BDEF1D6FBFE60059E733 /* Frameworks */,
 				AE58BDF01D6FBFE60059E733 /* Resources */,
+				84337C9735F5B6EEA8562FFF /* [CP] Embed Pods Frameworks */,
+				E0A6A1CDC2AFA365365B8B5F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -243,6 +281,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		39455DFD74F4C24936B6AC9B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mixr/Pods-Mixr-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		39EA1E9B02639FEEA77D23DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		84337C9735F5B6EEA8562FFF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MixrTests/Pods-MixrTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE45E86C13D16CBF0B917C5B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E0A6A1CDC2AFA365365B8B5F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MixrTests/Pods-MixrTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F62DC58A0496667B28897DC7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mixr/Pods-Mixr-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AE58BDD81D6FBFE60059E733 /* Sources */ = {
@@ -337,7 +468,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -379,7 +510,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -390,6 +521,7 @@
 		};
 		AE58BDFC1D6FBFE60059E733 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86A099CFCBECAA6A66EE53D9 /* Pods-Mixr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Mixr/Info.plist;
@@ -402,6 +534,7 @@
 		};
 		AE58BDFD1D6FBFE60059E733 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8FC0E86F91A26C8B14E4EF1 /* Pods-Mixr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Mixr/Info.plist;
@@ -414,6 +547,7 @@
 		};
 		AE58BDFF1D6FBFE60059E733 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99496BE0D2DEFE555DEEFD2C /* Pods-MixrTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MixrTests/Info.plist;
@@ -427,6 +561,7 @@
 		};
 		AE58BE001D6FBFE60059E733 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BBA60A9D36614827A0E4C46 /* Pods-MixrTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MixrTests/Info.plist;
