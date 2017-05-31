@@ -2,23 +2,20 @@
 //  BartenderManager.swift
 //  Mixr
 //
-//  Created by Pivotal - Dev 133 on 2016-08-27.
+//  Created by Caelin Jackson-King on 2016-10-23.
 //  Copyright © 2016 Caelin Inc. All rights reserved.
 //
 
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class BartenderManager: NSObject {
-    var savedDrink: DrinkModel?
-    
-    override init() {
-        self.savedDrink = nil
-    }
+protocol CatalogueService {
+    var knownDrinks: Observable<[DrinkModel]> { get }
 }
 
-extension BartenderManager {
-    func detailedDrinkInformationForDrink(_ drink: DrinkModel) -> DetailedDrinkModel? {
-        return nil
-    }
+class BartenderManager: NSObject {
+    var source: CatalogueService?
+    
 }
