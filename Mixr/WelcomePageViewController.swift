@@ -8,16 +8,30 @@
 
 import UIKit
 
-class WelcomePageViewController: UIViewController {
+enum EasyDrinks: String {
+    case vodka = "Vodka"
+}
 
+class WelcomePageViewController: UIViewController {
+    fileprivate lazy var welcomePageView: WelcomePageView = {
+        return WelcomePageView(frame:self.view.frame)
+    }()
+    
+    fileprivate lazy var bartender: BartenderManager = {
+       return BartenderManager.sharedInstance
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.view.addSubview(welcomePageView)
+        welcomePageView.delegate = self
     }
 }
 
+extension WelcomePageViewController: WelcomePageViewDelegate {
+    func loadTapped(by view: WelcomePageView) {
+        bartender.search(by: EasyDrinks.vodka.rawValue) { drinks in
+            print("Yay")
+        }
+    }
+}

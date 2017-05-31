@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import RxTest
 @testable import Mixr
 
 class AbsolutDrinkServiceTests: XCTestCase {
@@ -18,7 +17,6 @@ class AbsolutDrinkServiceTests: XCTestCase {
         partsPerIngredient:[Ingredient:Int](),
         extraInformation:"")]
     
-    let disposeBag = DisposeBag()
     
     override func setUp() {
         super.setUp()
@@ -30,19 +28,19 @@ class AbsolutDrinkServiceTests: XCTestCase {
     }
     
     func testValidDrink() {
-//        let asyncExpectation = expectation(description: "networkTest")
-//        var callData: [DrinkModel]
-//        callData = []
-//        
-//        subject.search("") { (data) in
-//            asyncExpectation.fulfill()
-//            callData.append(contentsOf: data)
-//        }
-//        
-//        self.waitForExpectations(timeout: 100.0) { (error) in
-//            XCTAssertNil(error, "Call didn't finish in time")
-//            XCTAssert(!callData.isEmpty, "no data was returned")
-//        }
+        let asyncExpectation = expectation(description: "networkTest")
+        var callData: [DrinkModel]
+        callData = []
+        
+        subject.search(by: "") { (data) in
+            asyncExpectation.fulfill()
+            callData.append(contentsOf: data)
+        }
+        
+        self.waitForExpectations(timeout: 100.0) { (error) in
+            XCTAssertNil(error, "Call didn't finish in time")
+            XCTAssert(!callData.isEmpty, "no data was returned")
+        }
     }
     
     
@@ -51,15 +49,10 @@ class AbsolutDrinkServiceTests: XCTestCase {
         var callData: [DrinkModel]
         callData = []
 
-        subject.knownDrinks
-            .subscribe(onNext: { (data) in
-                asyncExpectation.fulfill()
-//                callData = callData + data
-            })
-            .addDisposableTo(disposeBag)
-        
-        subject.search(by: "lol what am I doing?/")
-        
+        subject.search(by: "lol what am I doing?/") { (data) in
+            asyncExpectation.fulfill()
+            callData.append(contentsOf: data)
+        }
         
         self.waitForExpectations(timeout: 100.0) { (error) in
             XCTAssertNil(error, "Call didn't finish in time")

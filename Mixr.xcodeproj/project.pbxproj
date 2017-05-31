@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D67704A1DBC867D00547EDE /* AbsolutDrinkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6770491DBC867D00547EDE /* AbsolutDrinkServiceTests.swift */; };
 		0D67704C1DBD936600547EDE /* BartenderManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D67704B1DBD936600547EDE /* BartenderManagerTests.swift */; };
+		0DE2BF401EDE780700765885 /* WelcomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE2BF3F1EDE780700765885 /* WelcomePageView.swift */; };
 		AE58BDE01D6FBFE60059E733 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE58BDDF1D6FBFE60059E733 /* AppDelegate.swift */; };
 		AE58BDE21D6FBFE60059E733 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE58BDE11D6FBFE60059E733 /* WelcomePageViewController.swift */; };
 		AE58BDE41D6FBFE60059E733 /* SavedDrinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE58BDE31D6FBFE60059E733 /* SavedDrinksViewController.swift */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		0D6770491DBC867D00547EDE /* AbsolutDrinkServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsolutDrinkServiceTests.swift; sourceTree = "<group>"; };
 		0D67704B1DBD936600547EDE /* BartenderManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BartenderManagerTests.swift; sourceTree = "<group>"; };
+		0DE2BF3F1EDE780700765885 /* WelcomePageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomePageView.swift; path = Views/WelcomePageView.swift; sourceTree = "<group>"; };
 		AE58BDDC1D6FBFE60059E733 /* Mixr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mixr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE58BDDF1D6FBFE60059E733 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE58BDE11D6FBFE60059E733 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,14 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		0DE2BF3E1EDE77D500765885 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0DE2BF3F1EDE780700765885 /* WelcomePageView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		AE58BDD31D6FBFE60059E733 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +108,7 @@
 		AE58BDDE1D6FBFE60059E733 /* Mixr */ = {
 			isa = PBXGroup;
 			children = (
+				0DE2BF3E1EDE77D500765885 /* Views */,
 				0D6770481DBC7C2700547EDE /* Controllers */,
 				AE58BE051D7214960059E733 /* Models */,
 				AE58BE021D7213EE0059E733 /* Services */,
@@ -254,6 +265,7 @@
 				AE58BDE01D6FBFE60059E733 /* AppDelegate.swift in Sources */,
 				AE58BDE21D6FBFE60059E733 /* WelcomePageViewController.swift in Sources */,
 				AE58BE071D7214BD0059E733 /* DrinkModel.swift in Sources */,
+				0DE2BF401EDE780700765885 /* WelcomePageView.swift in Sources */,
 				AE58BE041D72142A0059E733 /* BartenderManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

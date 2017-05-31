@@ -8,14 +8,20 @@
 
 
 import UIKit
-import RxSwift
-import RxCocoa
 
 protocol CatalogueService {
-    var knownDrinks: Observable<[DrinkModel]> { get }
+    func search(by name: String, with payload:@escaping ([DrinkModel]) -> ())
 }
 
 class BartenderManager: NSObject {
-    var source: CatalogueService?
+    static let sharedInstance = BartenderManager()
+    private var source: CatalogueService?
     
+    func search(by name: String, with payload: @escaping ([DrinkModel]) -> ()) {
+        source?.search(by: name, with: payload)
+    }
+    
+    fileprivate override init() {
+        self.source = AbsolutDrinkService()
+    }
 }

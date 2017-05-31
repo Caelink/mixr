@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxSwift
 
 //TODO make a constants file and don't put this stuff in my public repo...
 let absolutName = "Caelin"
@@ -26,18 +25,12 @@ extension DrinkModel {
 }
 
 class AbsolutDrinkService: NSObject, CatalogueService {
-    fileprivate var parsedDrinks: BehaviorSubject<[DrinkModel]> = BehaviorSubject(value: [])
-    var knownDrinks: Observable<[DrinkModel]> {
-        get {
-            return parsedDrinks.asObservable()
-        }
-    }
 
     func searchForDrinksWithKeyword(_ keyword: String) {
         /* No-op for now - updates knownDrinks Observable */
     }
     
-    func search(by name: String) {
+    func search(by name: String, with payload:@escaping ([DrinkModel]) -> ()) {
         //Talk to the server for the app
         let absolutKeyParameter = "?apiKey=" + absolutKey
         guard let drinkName = percentEscape(aString: name) else {
@@ -60,70 +53,81 @@ class AbsolutDrinkService: NSObject, CatalogueService {
                                     completionHandler: { [weak self] (data, response, error) in
                                         guard error == nil else {
                                             print("Error making request")
+                                            payload([])
                                             return
                                         }
                                         
                                         if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                                             print("statusCode should be 200, but is \(httpStatus.statusCode)")
                                             print("response = \(String(describing: response))")
+                                            payload([])
                                             return
                                         }
                                         
                                         guard let responseData = data else {
                                             print("No data returned")
+                                            payload([])
                                             return
                                         }
                                         
                                         do {
                                             guard let drinkData = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: AnyObject] else {
                                                 print("Error converting to json")
+                                                payload([])
                                                 return
                                             }
-                                            let drinks = unpack(drinkData: drinkData)
-                                            self?.parsedDrinks.onNext(drinks)
+                                            if let drinks = self?.unpack(drinkData: drinkData) {
+                                                payload(drinks)
+                                            }
                                         } catch {
                                             print("Error converting to json")
+                                            payload([])
                                         }
         })
         task.resume()
     }
 }
 
-func percentEscape(aString: String) -> String? {
-    let allowedCharacters = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._~")
-    return aString.addingPercentEncoding(withAllowedCharacters: allowedCharacters)
-}
+//PRAGMA MARK: Helpers
+extension AbsolutDrinkService {
+    func percentEscape(aString: String) -> String? {
+        let allowedCharacters = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._~")
+        return aString.addingPercentEncoding(withAllowedCharacters: allowedCharacters)
+    }
 
-func unpack(drinkData:[String: AnyObject]) -> [DrinkModel] {
-    var result : [DrinkModel]
-    result = []
-//    guard let num = drinkData["totalResult"] as? [NSNumber] else {
-//        return []
-//    }
-
-    guard let drinks = drinkData["result"] as? [[String : AnyObject]] else {
+    
+    func unpack(drinkData:[String: AnyObject]) -> [DrinkModel] {
+        var result : [DrinkModel]
+        result = []
+            guard let num = drinkData["totalResult"] as? [NSNumber],
+                num != [(0)] else {
+                return result
+            }
+        
+        guard let drinks = drinkData["result"] as? [[String : AnyObject]] else {
+            return result
+        }
+        
+        for drink in drinks {
+            if let drinkname = drink["name"] as? String {
+                var ingredients : [Ingredient]
+                if let ingredientDictionary = drink["ingredients"] as? [[String:AnyObject]] {
+                    ingredients = parse(from:ingredientDictionary)
+                } else {
+                    ingredients = []
+                }
+                let newModel = DrinkModel.init(name:drinkname,
+                                               ingredients: ingredients,
+                                               partsPerIngredient: [:],
+                                               extraInformation: "")
+                result.append(newModel)
+            }
+        }
+        
         return result
     }
     
-    for drink in drinks {
-        if let drinkname = drink["name"] as? String {
-            var ingredients : [Ingredient]
-            if let ingredientDictionary = drink["ingredients"] as? [[String:AnyObject]] {
-                ingredients = parseFrom(ingredientsDictionary:ingredientDictionary)
-            } else {
-                ingredients = []
-            }
-            let newModel = DrinkModel.init(name:drinkname,
-                                           ingredients: ingredients,
-                                           partsPerIngredient: [:],
-                                           extraInformation: "")
-            result.append(newModel)
-        }
+    func parse(from ingredients: [[String:AnyObject]]) -> [Ingredient] {
+        return []
     }
-    
-    return result
-}
-
-func parseFrom(ingredientsDictionary: [[String:AnyObject]]) -> [Ingredient] {
-    return []
 }
