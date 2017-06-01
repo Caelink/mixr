@@ -8,20 +8,36 @@
 
 import UIKit
 
-class SavedDrinksViewController: UIViewController {
-    var bartender: BartenderManager!
-    
-    //TODO remove
-    lazy var someVariable: UIView = {
-       return UIView()
-    }()
+class SavedDrinksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    fileprivate var bartender: BartenderManager = BartenderManager.sharedInstance
+    fileprivate var searchResults: [DrinkModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    func setup(withBartender bartender: BartenderManager) {
-        self.bartender = bartender
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        searchResults = bartender.search(name: "")
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        /* No-op */
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchResults.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let c = UITableViewCell()
+        let drink = searchResults[indexPath.row]
+        c.textLabel?.text = drink.name
+        return c
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
 }
 

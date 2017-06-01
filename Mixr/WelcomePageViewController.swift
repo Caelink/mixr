@@ -8,18 +8,13 @@
 
 import UIKit
 
-enum EasyDrinks: String {
-    case vodka = "Vodka"
-}
-
 class WelcomePageViewController: UIViewController {
+    fileprivate var drinks: [DrinkModel]?
     fileprivate lazy var welcomePageView: WelcomePageView = {
         return WelcomePageView(frame:self.view.frame)
     }()
     
-    fileprivate lazy var bartender: BartenderManager = {
-       return BartenderManager.sharedInstance
-    }()
+    fileprivate var bartender: BartenderManager = BartenderManager.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +25,6 @@ class WelcomePageViewController: UIViewController {
 
 extension WelcomePageViewController: WelcomePageViewDelegate {
     func loadTapped(by view: WelcomePageView) {
-        bartender.search(by: EasyDrinks.vodka.rawValue) { drinks in
-            print("Yay")
-        }
+        drinks = bartender.search(ingredient: .Vodka)
     }
 }

@@ -11,11 +11,9 @@ import UIKit
 enum Ingredient: String {
     case Ice = "ice"
     case LemonJuice = "lemon juice"
-    enum Alcohol : String {
-        case Vodka = "vodka"
-        case Tequila = "tequila"
-        case TripleSec = "triple sec"
-    }
+    case Vodka = "vodka"
+    case Tequila = "tequila"
+    case TripleSec = "triple sec"
 }
 
 protocol Recipe {

@@ -30,7 +30,7 @@ class AbsolutDrinkService: NSObject, CatalogueService {
         /* No-op for now - updates knownDrinks Observable */
     }
     
-    func search(by name: String, with payload:@escaping ([DrinkModel]) -> ()) {
+    func search(by name: String, with payload:@escaping ([Recipe]) -> ()) {
         //Talk to the server for the app
         let absolutKeyParameter = "?apiKey=" + absolutKey
         guard let drinkName = percentEscape(aString: name) else {
@@ -99,8 +99,8 @@ extension AbsolutDrinkService {
     func unpack(drinkData:[String: AnyObject]) -> [DrinkModel] {
         var result : [DrinkModel]
         result = []
-            guard let num = drinkData["totalResult"] as? [NSNumber],
-                num != [(0)] else {
+            guard let num = drinkData["totalResult"] as? NSNumber,
+                num != (0) else {
                 return result
             }
         
